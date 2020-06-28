@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Angular online shop</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/product-controller.js"></script>
+    <script src="js/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #f0efef" data-ng-app="angularMiniShop" data-ng-controller="productCtrl">
+<header class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="box-shadow: 0px 0px 2px #888888;">
+    <div class="container">
+        <a class="navbar-brand" href="#/">Angular online shop</a>
+        <span class="app-bar-divider"></span>
+        <div class="input-control text">
+            <input type="text" placeholder="Search..." data-ng-model="query">
+        </div>
+        <a href="#cart" class="btn btn-light"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+        </svg> Cart</a>
+        <div class="dropdown show">
+            <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+               data-toggle="dropdown"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-tags-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M3 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 7.586 1H3zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                <path d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z"/>
+            </svg> Category
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#category" data-ng-click="queryObj.category='Camera'">Camera</a>
+                <a class="dropdown-item" href="#category" data-ng-click="queryObj.category='Lens'">Lens</a>
+                <a class="dropdown-item" href="#category"
+                   data-ng-click="queryObj.category='Accessories'">Accessories</a>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="container" style="margin-top: 75px" ng-view>
+
+</section>
+<footer class="bg-dark mt-5">
+    <div class="container footer-copyright text-center py-3">© 2020 Copyright: Adam Uklański s12708
+    </div>
+</footer>
+<script>
+
+</script>
+</body>
+</html>
