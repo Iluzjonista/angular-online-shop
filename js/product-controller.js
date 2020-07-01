@@ -121,16 +121,12 @@ angularMiniShopApp.controller('productCtrl', function ($scope) {
             buy: 0
         }];
     $scope.query = "";
-    var sum1 =0;
-    var sum2 =0;
     $scope.buy = function (id) {
         if ($scope.products[id - 1].stock > 0) {
             $scope.products[id - 1].in_cart = true;
             $scope.products[id - 1].buy++;
             $scope.products[id - 1].stock--;
             toastr["info"]("Was added to cart", $scope.products[id - 1].name)
-            sum1 += 1;
-            sum2 += $scope.products[id - 1].price;
             toastr.options = {
                 "closeButton": false,
                 "debug": false,
@@ -151,5 +147,31 @@ angularMiniShopApp.controller('productCtrl', function ($scope) {
         } else {
             toastr["warning"]("Product out of stock", "Ups")
         }
+    }
+    $scope.delete = function (id) {
+        if ($scope.products[id - 1].buy > 1) {
+            $scope.products[id - 1].buy--;
+            $scope.products[id - 1].stock++;
+        } else {
+            $scope.products[id - 1].buy--;
+            $scope.products[id - 1].stock++;
+            $scope.products[id - 1].in_cart = false;
+        }
+    };
+    $scope.getTotalProducts = function () {
+        let cls = document.getElementsByClassName("items")
+        let sum = 0;
+        for (let i = 0; i < cls.length; i++){
+                sum += parseInt(cls[i].innerHTML);
+        }
+        return sum
+    }
+    $scope.getTotalSum = function () {
+        let cls = document.getElementsByClassName("countable")
+        let sum = 0;
+        for (let i = 0; i < cls.length; i++){
+                sum += parseInt(cls[i].innerHTML);
+        }
+        return sum
     }
 });

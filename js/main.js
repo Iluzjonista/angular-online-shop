@@ -45,29 +45,29 @@ angularMiniShopApp.config(function ($routeProvider) {
             {
                 template: "" +
                     "<div class='main-div--cart'>" +
-                    "	<div class='container'>" +
-                    "    	<div class='cell offset1 colspan3 padding10 bg-white' style='background-color: white'><h6>Total cart: {{ (products | filter: { in_cart : true }).length }}</h6></div>" +
-                    "	</div>" +
                     "<h2>Your Cart Items</h2>" +
-                    "                  <table class='table table-hover checkout'>" +
+                    "                  <table class='table table-hover checkout' id='sum'>" +
                     "                    <tbody>" +
                     "                      <tr>" +
                     "                        <th class='text-center'>Name</th>" +
                     "                        <th class='text-center'>Qty.</th>" +
                     "                        <th class='text-right'>Price</th>" +
                     "                        <th class='text-right'>Total</th>" +
+                    "                        <th class='text-right'></th>" +
                     "                      </tr>" +
                     "                      <tr data-ng-repeat='product in products | filter : qry.in_cart=true'>" +
                     "                        <th class='text-center'>{{ product.name }}</th>" +
                     "                        <th class='text-center items'>{{ product.buy }}</th>" +
                     "                        <th class='text-right'>{{ product.price }}</th>" +
-                    "                        <th class='text-right total'>{{ product.price * product.buy }}</th>" +
+                    "                        <th class='text-right total countable'>{{ product.price * product.buy }}</th>" +
+                    "                        <th class='text-right total'><button class='btn' data-ng-click='delete(product.id)'>x</button></th>" +
                     "                      </tr>" +
                     "					  <tr>" +
-                    "                        <th colSpan='2'>Total</th>" +
-                    "                        <th class='text-center' id='sum1'>{{ (products | filter: { in_cart : true }).length }}</th>" +
+                    "                        <th colSpan='2'></th>" +
+                    "                        <th class='text-center' id='sum1'>Items in cart: {{ getTotalProducts() }}</th>" +
+                   // "                        <th class='text-center' id='sum1'>{{ (products | filter: { in_cart : true }).length }}</th>" +
                     "                        <th></th>" +
-                    "                        <th class='text-right price' id='sum2'></th>" +
+                    "                        <th class='text-right price' id='sum2'>Total: {{ getTotalSum() }}</th>" +
                     "                      </tr>" +
                     "                    </tbody>" +
                     "                  </table>" +
