@@ -1,4 +1,4 @@
-angularMiniShopApp.controller('productCtrl', function ($scope) {
+angularMiniShopApp.controller('productCtrl', function ($scope,  $routeParams, $location, $window) {
     $scope.products = [
         {
             id: 1,
@@ -109,7 +109,7 @@ angularMiniShopApp.controller('productCtrl', function ($scope) {
             buy: 0
         },
         {
-            id: 10,
+            id: 0,
             name: "Lens hood with Cap",
             image: "acc-1.jpg",
             category: "Accessories",
@@ -161,17 +161,28 @@ angularMiniShopApp.controller('productCtrl', function ($scope) {
     $scope.getTotalProducts = function () {
         let cls = document.getElementsByClassName("items")
         let sum = 0;
-        for (let i = 0; i < cls.length; i++){
-                sum += parseInt(cls[i].innerHTML);
+        for (let i = 0; i < cls.length; i++) {
+            sum += parseInt(cls[i].innerHTML);
         }
         return sum
-    }
+    };
     $scope.getTotalSum = function () {
         let cls = document.getElementsByClassName("countable")
         let sum = 0;
-        for (let i = 0; i < cls.length; i++){
-                sum += parseInt(cls[i].innerHTML);
+        for (let i = 0; i < cls.length; i++) {
+            sum += parseInt(cls[i].innerHTML);
         }
         return sum
+    };
+    let urlId = $routeParams.id;
+    $scope.productId0 = window.location.href.split('/')[8];
+    $scope.productId1 = urlId;
+    $scope.productId2 = $location.hash();
+    $scope.queryTest = $location.hash();
+    $scope.reloadRoute = function() {
+        // $window.location.reload();
+        // $route.reload();
+        $scope.$apply();
     }
+
 });

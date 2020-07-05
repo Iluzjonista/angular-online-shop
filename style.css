@@ -82,3 +82,7 @@ code {
     display: flex;
     justify-content: center;
 }
+.breadcrumb {
+    padding: .5rem 0 0 1rem;
+    font-size: .75rem;
+}
