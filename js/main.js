@@ -109,12 +109,12 @@ angularMiniShopApp.config(function ($routeProvider) {
                     "<div class='main-div'>" +
                     "	<div class='product' style='background-color: white' data-ng-repeat='product in products | filter : queryTest'>" +
                     "    	<div class=''>" +
-                    "        	<div class='image-container'>" +
+                    "        	<a href='#!product#{{product.id}}'><div class='image-container'>" +
                     "            	<div class='frame'><img class='img-fluid' src='images/{{ product.image }}''></div>" +
-                    "        	</div>" +
+                    "        	</div></a>" +
                     "    	</div>" +
                     "    	<div class='cell colspan2'>" +
-                    "        	<h3>{{ product.name }}aa</h3>" +
+                    "        	<h3>{{ product.name }}</h3>" +
                     "        	<p>{{ product.description }}</p>" +
                     "        	<div>" +
                     "            	<p class='price font-weight-bold'>{{ product.price | currency: 'PLN ' }}</p>" +

@@ -110,7 +110,7 @@ angularMiniShopApp.controller('productCtrl', function ($scope,  $routeParams, $l
         },
         {
             id: 0,
-            name: "Lens hood with Cap",
+            name: "Lems hood with Cap",
             image: "acc-1.jpg",
             category: "Accessories",
             description: "This is description of a product",
@@ -180,9 +180,6 @@ angularMiniShopApp.controller('productCtrl', function ($scope,  $routeParams, $l
     $scope.productId2 = $location.hash();
     $scope.queryTest = $location.hash();
     $scope.reloadRoute = function() {
-        // $window.location.reload();
-        // $route.reload();
         $scope.$apply();
     }
-
 });
