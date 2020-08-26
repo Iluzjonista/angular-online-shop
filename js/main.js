@@ -8,12 +8,14 @@ angularMiniShopApp.config(function ($routeProvider) {
                     "   <nav aria-label='breadcrumb'>" +
                     "       <ol class='breadcrumb'>" +
                     "           <li class='breadcrumb-item'><a href='#'>Home</a></li>" +
-                    "           <li class='breadcrumb-item active' aria-current='page'>Products</li>" +
+                    "           <li class='breadcrumb-item'><a href='#/'>Products</a></li>" +
                     "           <li class='breadcrumb-item active' aria-current='page' data-ng-show='query != &apos;&apos;'>{{ query }}</li>" +
                     "           <li class='breadcrumb-item active' aria-current='page' data-ng-show='queryObj != &apos;&apos; ' >{{ queryObj.category }}</li>" +
                     "       </ol>" +
                     "   </nav>" +
                     "</div>" +
+                    "<h2 class='text-center pb-2'>Available products</h2>" +
+                    "<h2 class='text-center pb-2' data-ng-show='queryObj != &apos;&apos; '>{{ queryObj.category }}</h2>" +
                     "<div class='main-div'>" +
                     "	<div class='product' style='background-color: white' data-ng-repeat='product in products | filter : query | filter : queryObj'>" +
                     "    	<div class=''>" +
@@ -98,11 +100,13 @@ angularMiniShopApp.config(function ($routeProvider) {
                     "   <nav aria-label='breadcrumb'>" +
                     "       <ol class='breadcrumb'>" +
                     "           <li class='breadcrumb-item'><a href='#/'>Home</a></li>" +
-                    "           <li class='breadcrumb-item active' aria-current='page'>Products</li>" +
+                    "           <li class='breadcrumb-item'><a href='#/'>Products</a></li>" +
                     "           <li class='breadcrumb-item active' aria-current='page'>{{ queryTest }}</li>" +
                     "       </ol>" +
                     "   </nav>" +
                     "</div>" +
+                    "<h2 class='text-center pb-2'>Available products</h2>" +
+                    "<h2 class='text-center pb-2' data-ng-show='queryObj != &apos;&apos; '>{{ queryTest }}</h2>" +
                     "	<div class='row cells5' data-ng-show='query != &apos;&apos;'>" +
                     "    	<div class='cell offset1 colspan3 padding10 bg-white' style='background-color: white'><h6>Queries: Only show in home page</h6></div>" +
                     "	</div>" +
@@ -148,7 +152,8 @@ angularMiniShopApp.config(function ($routeProvider) {
                     "   <nav aria-label='breadcrumb'>" +
                     "       <ol class='breadcrumb'>" +
                     "           <li class='breadcrumb-item'><a href='#/'>Home</a></li>" +
-                    "           <li class='breadcrumb-item active' aria-current='page'>Products</li>" +
+                    "           <li class='breadcrumb-item'><a href='#/'>Products</a></li>" +
+                    "           <li class='breadcrumb-item'><a href='#!category#{{product.category}}' ng-click='reloadRoute'>{{ product.category }}</a></li>" +
                     "           <li class='breadcrumb-item active' aria-current='page'>{{ product.name }}</li>" +
                     "       </ol>" +
                     "   </nav>" +
@@ -158,6 +163,7 @@ angularMiniShopApp.config(function ($routeProvider) {
                     "	</div>" +
                     "<div class='product-div'>" +
                     "	<div class='product' style='background-color: white' data-ng-repeat='product in products | filter: { id: productId2 }'>" +
+                    "<h2 class='text-center'>Product: {{ product.name }}</h2>" +
                     "    	<div class='' id ='test'>" +
                     "        	<div class='image-container'>" +
                     "            	<div class='frame'><img class='img-fluid' src='images/{{ product.image }}''></div>" +
